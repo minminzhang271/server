@@ -17,7 +17,7 @@ app.use(express.json());
 //     // useNewUrlParser: true,
 //     useUnifiedTopology: true
 // });
-mongoose.connect('mongodb://localhost:27017/todoapp')
+mongoose.connect(process.env.MONGODB_URI ||'mongodb://localhost:27017/todoapp')
   .then(() => console.log('Connected to MongoDB successfully'))
   .catch(err => console.error('Error connecting to MongoDB:', err));
 
