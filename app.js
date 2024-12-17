@@ -9,7 +9,13 @@ dotenv.config();
 const app = express();
 
 // 中间件
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+    origin: 'https://swdeep.cc', // Or '*' for all origins
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+  }));
 app.use(express.json());
 
 // MongoDB连接
